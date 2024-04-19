@@ -1,0 +1,139 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> 
+        <script>
+            function funcBefore () {
+            }
+
+            function funcSuccess (data) {
+                $("#information").html (data);
+            }
+
+            $(document).ready (function () {
+                $("#charges").click (function () {
+                    $.ajax ({
+                        url: "charges.html",
+                        type: "POST",
+                        dataType: "html",
+                        beforeSend: funcBefore,
+                        success: funcSuccess
+                    });
+                });
+            });
+
+            $(document).ready (function () {
+                $("#payments").click (function () {
+                    $.ajax ({
+                        url: "payments.html",
+                        type: "POST",
+                        dataType: "html",
+                        beforeSend: funcBefore,
+                        success: funcSuccess
+                    });
+                });
+            });
+
+            $(document).ready (function () {
+                $("#start_saldo").click (function () {
+                    $.ajax ({
+                        url: "start_saldo.html",
+                        type: "POST",
+                        dataType: "html",
+                        beforeSend: funcBefore,
+                        success: funcSuccess
+                    });
+                });
+            });
+
+            $(document).ready (function () {
+                $("#choice1").click (function () {
+                    $.ajax ({
+                        url: "choice1.html",
+                        type: "POST",
+                        dataType: "html",
+                        beforeSend: funcBefore,
+                        success: funcSuccess
+                    });
+                });
+            });
+
+            $(document).ready (function () {
+                $("#choice2").click (function () {
+                    $.ajax ({
+                        url: "choice2.html",
+                        type: "POST",
+                        dataType: "html",
+                        beforeSend: funcBefore,
+                        success: funcSuccess
+                    });
+                });
+            });
+
+            $(document).ready (function () {
+                $("#choice3").click (function () {
+                    $.ajax ({
+                        url: "choice3.html",
+                        type: "POST",
+                        dataType: "html",
+                        beforeSend: funcBefore,
+                        success: funcSuccess
+                    });
+                });
+            });
+
+        </script> 
+        <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.css">
+        <link rel="stylesheet" href="myindex.css">
+    </head>
+    <body>
+        
+        <div class="container-fluid">
+            
+            <div class="row">
+                
+                <div class="col-sm-12">
+                    <div class="header">
+                        Лабораторная работа. Этап №2
+                    </div>           
+                </div>
+             
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="left">
+                        <nav>
+                            <ul>
+                                <li id="charges" style="cursor:pointer">Начисления</li>
+                                <li id="payments" style="cursor:pointer">Платежи</li>
+                                <li id="start_saldo" style="cursor:pointer">Начальное сальдо</li>
+                                <li>Сводки
+                                    <ul>
+                                        <li id="choice1" style="cursor:pointer">Оборотная ведомость 1</li>
+                                        <li id="choice2" style="cursor:pointer">Оборотная ведомость 2</li>
+                                        <li id="choice3" style="cursor:pointer">Оборотная ведомость 3</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+                <div class="col-sm-10">
+                    <div class="right">
+                        <p id="information"></p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        
+
+
+
+        <script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
+    </body>
+</html>

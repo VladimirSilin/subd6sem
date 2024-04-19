@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>  
+        <script>
+            function funcBefore () {
+                $("#result_form").text ("Ожидание данных...");
+            }
+
+            function funcSuccess (data) {
+                $("#result_form").html (data);
+            }
+
+            $( document ).ready(function() {
+                $("#btn").click(function() {
+                    $.ajax({
+                        url: "payments.php", 
+                        type: "POST", 
+                        dataType: "html",
+                        data: $("#ajax_form").serialize(),  
+                        beforeSend: funcBefore,
+                        success: funcSuccess
+                    });
+                });
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <p>Платежи</p>
+        <form method="post" id="ajax_form" action=""> 
+            <p>Расчётный год: <input type="text" name="year"> Месяц: <input type="text" name="month"> </p>
+            <p>Диапазон квартир: <input type="text" name="min"> - <input type="text" name="max"> </p>
+            <input id="btn" type="button" value="Отправить">
+        </form>
+        <p id="result_form"></p>
+    </body>
+</html>

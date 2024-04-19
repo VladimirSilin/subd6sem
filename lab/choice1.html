@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>  
+        <script>
+            function funcBefore () {
+                $("#result_form").text ("Ожидание данных...");
+            }
+
+            function funcSuccess (data) {
+                $("#result_form").html (data);
+            }
+
+            $( document ).ready(function() {
+                $("#btn").click(function() {
+                    $.ajax({
+                        url: "choice1.php", 
+                        type: "POST", 
+                        dataType: "html",
+                        data: $("#ajax_form").serialize(),  
+                        beforeSend: funcBefore,
+                        success: funcSuccess
+                    });
+                });
+            });
+
+
+        </script>
+    </head>
+    <body>
+        <p>Оборотная ведомость за год</p>
+        <form method="post" id="ajax_form" action=""> 
+            <p>Расчётный год: <input type="text" name="year"></p>
+            <input id="btn" type="button" value="Отправить">
+        </form>
+        <p id="result_form"></p>
+    </body>
+</html>
